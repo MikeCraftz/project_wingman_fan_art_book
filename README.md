@@ -1,6 +1,10 @@
 # De Re Militari - Project Wingman Fan Site
 
-A static fan site for the "De Re Militari" art book project, designed with an in-universe defense contractor aesthetic ("United Service Institute").
+A static fan site for the "De Re Militari" art book project, designed with an in-universe defense jornal aesthetic ("United Service Institute").
+
+This book is a pure work of fiction, a fan-created art book with a collection of fan art and story about the game Project Wingman by Sector-D2.
+
+This book and myself are not associated with Sector-D2 in any degree. All information, including all text and art should be considered non-canon and are not part of the official lore.
 
 ## Overview
 
