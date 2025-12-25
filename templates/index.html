@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <img src="{{ url_for('static', filename='img/cover.jpg') }}" alt="Hero Image" class="hero-image">
+    <div class="hero-content">
+        <h1>THE LATEST ISSUES OF DE RE MILITARI</h1>
+        <p>Seasonal Special Feature: The Cascadian Conflict</p>
+        <a href="{{ url_for('book') }}" class="btn">Read the Report</a>
+        <div class="next-issue">
+            <p>Coming Soon</p>
+            <h3>The Last Frontier: The New Arms Race of Orbital Weaponry</h3>
+        </div>
+    </div>
+</section>
+
+<section class="container" style="padding: 4rem 2rem;">
+    <div class="grid" style="grid-template-columns: 1fr 1fr; align-items: center;">
+        <div>
+            <h2>About the Institute</h2>
+            <p style="margin-top: 1rem; color: #ccc;">
+                United Services Institute is the oldest and leading academic institution dedicated to the study of
+                conflict, security and geopolitics.
+
+                Since our foundation in AC292 by the Decree of Parliament, USI had continously produced in-depth
+                analyses
+                on emerging military issues, defence management, procurement and doctrine for policies maker and militar
+                planners.
+            </p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/chapter3.png') }}" alt="Chapter Preview"
+                style="width: 100%; border-radius: 4px;">
+        </div>
+    </div>
+</section>
+{% endblock %}

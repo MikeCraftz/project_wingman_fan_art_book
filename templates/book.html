@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}The Book{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 120px; padding-bottom: 4rem;">
+    <h1 style="margin-bottom: 2rem; border-bottom: 2px solid var(--color-primary); padding-bottom: 1rem;">De Re Militari
+        / Archives</h1>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+
+        {% for key, page in pages.items() %}
+        <div class="book-page">
+            <a href="{{ url_for('view', name=key) }}" style="display: block; text-decoration: none; color: inherit;">
+                <div
+                    style="position: relative; overflow: hidden; border: 1px solid #333; transition: border-color 0.3s ease;">
+                    <img src="{{ url_for('static', filename='img/' + page.img) }}" alt="{{ page.title }}"
+                        style="width: 100%; display: block; transition: transform 0.3s ease;">
+                    <div class="overlay"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 0, 125, 0.1); opacity: 0; transition: opacity 0.3s ease;">
+                    </div>
+                </div>
+                <h3 style="margin-top: 1rem;">{{ page.title }}</h3>
+                <p style="color: #888; font-size: 0.9rem;">{{ page.desc }}</p>
+            </a>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
