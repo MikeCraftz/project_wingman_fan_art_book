@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naval Warfare - Spread 1 | United Service Institute</title>
+    <title>National Reserve Mobilisation in Great-Power War | United Service Institute</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="/static/img/thumbs/cover.jpg">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
@@ -23,7 +24,8 @@
                     <a href="/book.html">Read the latest issue</a>
                     <a href="/authors">Authors</a>
                     <a href="/about.html">About</a>
-                    <a href="#" class="btn" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Download PDF</a>
+                    <a href="https://ko-fi.com/s/a2b4993753" class="btn" target="_blank"
+                        style="padding: 0.5rem 1rem; font-size: 0.8rem;">Download this book</a>
                 </div>
             </nav>
         </div>
@@ -40,122 +42,116 @@
     <div class="viewer-controls"
         style="padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.9); border-bottom: 1px solid #333; z-index: 10; position: relative;">
         <div style="display: flex; gap: 1rem; align-items: center;">
-            <a href="/book.html" class="btn" style="font-size: 0.8rem; padding: 0.5rem 1rem;">&larr; Back to
-                <div style="display: flex; gap: 1rem; align-items: center;">
-                    <a href="/book.html" class="btn" style="font-size: 0.8rem; padding: 0.5rem 1rem;">&larr;
-                        Back to
-                        Issues</a>
+            <a href="/book.html" class="btn" style="font-size: 0.8rem; padding: 0.5rem 1rem;">&larr;
+                Back to Issues</a>
 
-                    <div class="nav-controls"
-                        style="display: flex; gap: 0.5rem; margin-left: 1rem; border-left: 1px solid #444; padding-left: 1rem;">
-                        
-                        <a href="/view/16_17.html" class="btn"
-                            style="padding: 0.5rem 1rem; font-size: 0.9rem;">&larr; Prev</a>
-                        
+            <div class="nav-controls"
+                style="display: flex; gap: 0.5rem; margin-left: 1rem; border-left: 1px solid #444; padding-left: 1rem;">
+                
+                <a href="/view/20_21.html" class="btn"
+                    style="padding: 0.5rem 1rem; font-size: 0.9rem;">&larr; Prev</a>
+                
 
-                        
-                        <a href="/view/30_31.html" class="btn"
-                            style="padding: 0.5rem 1rem; font-size: 0.9rem;">Next &rarr;</a>
-                        
-                    </div>
+                
+                <a href="/view/24_25.html" class="btn"
+                    style="padding: 0.5rem 1rem; font-size: 0.9rem;">Next &rarr;</a>
+                
+            </div>
 
-                    <div class="zoom-controls"
-                        style="display: flex; gap: 0.5rem; margin-left: 1rem; border-left: 1px solid #444; padding-left: 1rem;">
-                        <button id="zoom-out" class="btn"
-                            style="padding: 0.5rem 1rem; font-size: 1.2rem; line-height: 1;">-</button>
-                        <button id="zoom-in" class="btn"
-                            style="padding: 0.5rem 1rem; font-size: 1.2rem; line-height: 1;">+</button>
-                        <button id="zoom-reset" class="btn"
-                            style="padding: 0.5rem 1rem; font-size: 0.8rem;">Reset</button>
-                    </div>
-                </div>
-                <h2 style="font-size: 1rem; margin: 0; color: #888;">Naval Warfare - Spread 1</h2>
-                <a href="/static/img/22_23.png" download class="btn"
-                    style="font-size: 0.8rem; padding: 0.5rem 1rem;">Download Page</a>
+            <div class="zoom-controls"
+                style="display: flex; gap: 0.5rem; margin-left: 1rem; border-left: 1px solid #444; padding-left: 1rem;">
+                <button id="zoom-out" class="btn"
+                    style="padding: 0.5rem 1rem; font-size: 1.2rem; line-height: 1;">-</button>
+                <button id="zoom-in" class="btn"
+                    style="padding: 0.5rem 1rem; font-size: 1.2rem; line-height: 1;">+</button>
+                <button id="zoom-reset" class="btn" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Reset</button>
+            </div>
         </div>
-
-        <div class="viewer-content" id="viewer-container"
-            style="flex: 1; overflow: hidden; display: flex; justify-content: center; align-items: center; position: relative; background: #000; cursor: grab;">
-            <img id="viewer-image" src="/static/img/22_23.png" alt="Naval Warfare - Spread 1"
-                style="max-width: 90%; max-height: 90%; box-shadow: 0 0 50px rgba(0,0,0,0.5); transform-origin: center center; transition: transform 0.1s ease-out; user-select: none;">
-        </div>
-
-        <script>
-            const container = document.getElementById('viewer-container');
-            const img = document.getElementById('viewer-image');
-            const zoomInBtn = document.getElementById('zoom-in');
-            const zoomOutBtn = document.getElementById('zoom-out');
-            const zoomResetBtn = document.getElementById('zoom-reset');
-
-            let scale = 1;
-            let panning = false;
-            let pointX = 0;
-            let pointY = 0;
-            let startX = 0;
-            let startY = 0;
-
-            function updateTransform() {
-                img.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
-            }
-
-            // Zoom via buttons
-            zoomInBtn.addEventListener('click', () => {
-                scale += 0.2;
-                updateTransform();
-            });
-
-            zoomOutBtn.addEventListener('click', () => {
-                scale = Math.max(0.1, scale - 0.2);
-                updateTransform();
-            });
-
-            zoomResetBtn.addEventListener('click', () => {
-                scale = 1;
-                pointX = 0;
-                pointY = 0;
-                updateTransform();
-            });
-
-            // Zoom via wheel
-            container.addEventListener('wheel', (e) => {
-                e.preventDefault();
-                const delta = e.deltaY > 0 ? -0.1 : 0.1;
-                scale = Math.max(0.1, scale + delta);
-                updateTransform();
-            });
-
-            // Pan via drag
-            container.addEventListener('mousedown', (e) => {
-                e.preventDefault();
-                panning = true;
-                startX = e.clientX - pointX;
-                startY = e.clientY - pointY;
-                container.style.cursor = 'grabbing';
-                img.style.transition = 'none'; // Disable transition for direct drag
-            });
-
-            container.addEventListener('mousemove', (e) => {
-                if (!panning) return;
-                e.preventDefault();
-                pointX = e.clientX - startX;
-                pointY = e.clientY - startY;
-                updateTransform();
-            });
-
-            container.addEventListener('mouseup', () => {
-                panning = false;
-                container.style.cursor = 'grab';
-                img.style.transition = 'transform 0.1s ease-out'; // Re-enable transition
-            });
-
-            container.addEventListener('mouseleave', () => {
-                panning = false;
-                container.style.cursor = 'grab';
-                img.style.transition = 'transform 0.1s ease-out';
-            });
-        </script>
+        <h2 style="font-size: 1rem; margin: 0; color: #888;">National Reserve Mobilisation in Great-Power War</h2>
     </div>
-    
+
+    <div class="viewer-content" id="viewer-container"
+        style="flex: 1; overflow: hidden; display: flex; justify-content: center; align-items: center; position: relative; background: #000; cursor: grab;">
+        <img id="viewer-image" src="/static/img/22_23.png" alt="National Reserve Mobilisation in Great-Power War"
+            style="max-width: 90%; max-height: 90%; box-shadow: 0 0 50px rgba(0,0,0,0.5); transform-origin: center center; transition: transform 0.1s ease-out; user-select: none;">
+    </div>
+
+    <script>
+        const container = document.getElementById('viewer-container');
+        const img = document.getElementById('viewer-image');
+        const zoomInBtn = document.getElementById('zoom-in');
+        const zoomOutBtn = document.getElementById('zoom-out');
+        const zoomResetBtn = document.getElementById('zoom-reset');
+
+        let scale = 1;
+        let panning = false;
+        let pointX = 0;
+        let pointY = 0;
+        let startX = 0;
+        let startY = 0;
+
+        function updateTransform() {
+            img.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+        }
+
+        // Zoom via buttons
+        zoomInBtn.addEventListener('click', () => {
+            scale += 0.2;
+            updateTransform();
+        });
+
+        zoomOutBtn.addEventListener('click', () => {
+            scale = Math.max(0.1, scale - 0.2);
+            updateTransform();
+        });
+
+        zoomResetBtn.addEventListener('click', () => {
+            scale = 1;
+            pointX = 0;
+            pointY = 0;
+            updateTransform();
+        });
+
+        // Zoom via wheel
+        container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            scale = Math.max(0.1, scale + delta);
+            updateTransform();
+        });
+
+        // Pan via drag
+        container.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            panning = true;
+            startX = e.clientX - pointX;
+            startY = e.clientY - pointY;
+            container.style.cursor = 'grabbing';
+            img.style.transition = 'none'; // Disable transition for direct drag
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!panning) return;
+            e.preventDefault();
+            pointX = e.clientX - startX;
+            pointY = e.clientY - startY;
+            updateTransform();
+        });
+
+        container.addEventListener('mouseup', () => {
+            panning = false;
+            container.style.cursor = 'grab';
+            img.style.transition = 'transform 0.1s ease-out'; // Re-enable transition
+        });
+
+        container.addEventListener('mouseleave', () => {
+            panning = false;
+            container.style.cursor = 'grab';
+            img.style.transition = 'transform 0.1s ease-out';
+        });
+    </script>
+</div>
+
     </main>
 
     <footer>
