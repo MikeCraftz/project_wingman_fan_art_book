@@ -217,7 +217,7 @@ def view(name):
 
     return render_template('viewer.html', page=current_page, name=name, prev_page=prev_page, next_page=next_page)
 
-@app.route('/authors')
+@app.route('/authors.html')
 def authors():
     return render_template('authors.html')
 
