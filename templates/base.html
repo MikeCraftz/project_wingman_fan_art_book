@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='img/thumbs/cover.jpg') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
@@ -23,7 +24,8 @@
                     <a href="{{ url_for('book') }}">Read the latest issue</a>
                     <a href="{{ url_for('authors') }}">Authors</a>
                     <a href="{{ url_for('about') }}">About</a>
-                    <a href="#" class="btn" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Download PDF</a>
+                    <a href="https://ko-fi.com/s/a2b4993753" class="btn" target="_blank"
+                        style="padding: 0.5rem 1rem; font-size: 0.8rem;">Download this book</a>
                 </div>
             </nav>
         </div>
