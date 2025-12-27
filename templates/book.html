@@ -9,19 +9,23 @@
 
     <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
 
-        {% for key, page in pages.items() %}
+        {% for chapter in chapters %}
         <div class="book-page">
-            <a href="{{ url_for('view', name=key) }}" style="display: block; text-decoration: none; color: inherit;">
+            <!-- Link to the first page of the chapter -->
+            <a href="{{ url_for('view', name=chapter.pages[0].id) }}"
+                style="display: block; text-decoration: none; color: inherit;">
                 <div
                     style="position: relative; overflow: hidden; border: 1px solid #333; transition: border-color 0.3s ease;">
-                    <img src="{{ url_for('static', filename='img/thumbs/' + page.img) }}" alt="{{ page.title }}"
+                    <!-- Use chapter thumbnail -->
+                    <img src="{{ url_for('static', filename='img/thumbs/' + chapter.thumb) }}" alt="{{ chapter.title }}"
                         style="width: 100%; display: block; transition: transform 0.3s ease;">
                     <div class="overlay"
                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 0, 125, 0.1); opacity: 0; transition: opacity 0.3s ease;">
                     </div>
                 </div>
-                <h3 style="margin-top: 1rem;">{{ page.title }}</h3>
-                <p style="color: #888; font-size: 0.9rem;">{{ page.desc }}</p>
+                <h3 style="margin-top: 1rem;">{{ chapter.title }}</h3>
+                <p style="color: #888; font-size: 0.9rem;">{{ chapter.desc }}</p>
+                <div style="font-size: 0.8rem; color: #555; margin-top: 0.5rem;">{{ chapter.pages|length }} Pages</div>
             </a>
         </div>
         {% endfor %}
